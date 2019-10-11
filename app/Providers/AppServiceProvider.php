@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(MemberServiceInterface::class, MemberService::class);
         $this->app->singleton(ProjectServiceInterface::class, ProjectService::class);
-        $this->app->singleton(ProjectWithMemberServiceInterface::class, ProjectWithUserService::class);
+        $this->app->singleton(ProjectWithMemberServiceInterface::class, ProjectWithMemberService::class);
     }
 
     /**
