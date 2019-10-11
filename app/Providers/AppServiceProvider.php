@@ -6,10 +6,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Services\MemberService;
 use App\Services\ProjectService;
-use App\Services\ProjectWithUserService;
+use App\Services\ProjectWithMemberService;
 use App\Interfaces\MemberServiceInterface;
 use App\Interfaces\ProjectServiceInterface;
-use App\Interfaces\ProjectWithUserServiceInterface;
+use App\Interfaces\ProjectWithMemberServiceInterface;
 
 
 
@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(MemberServiceInterface::class, MemberService::class);
         $this->app->singleton(ProjectServiceInterface::class, ProjectService::class);
-        $this->app->singleton(ProjectWithUserServiceInterface::class, ProjectWithUserService::class);
+        $this->app->singleton(ProjectWithMemberServiceInterface::class, ProjectWithUserService::class);
     }
 
     /**
