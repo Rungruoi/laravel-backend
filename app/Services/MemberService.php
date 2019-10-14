@@ -9,7 +9,6 @@ class MemberService implements MemberInterface
 {
     public function getMember()
     {
-        $getMember = Member::all();
-        return $getMember;
+        return Member::all();
     }
 }

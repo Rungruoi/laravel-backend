@@ -15,7 +15,6 @@ class MemberController extends BaseController
     public function index()
     {
         $member = $this->memberService->getMember();
-        return response($member);
+        return response()->json($member);
     }
-
 }

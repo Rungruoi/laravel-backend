@@ -4,6 +4,4 @@ namespace App\Interfaces;
 
 interface ProjectWithMemberInterface
 {
-
-
 }

@@ -26,8 +26,8 @@ class MemberSeeder extends Seeder
                     'people',
                     false
                 ),
-                'position' => rand(1 ,7),
-                'gender' => rand(1, 2),
+                'position' => rand(1,7),
+                'gender' => rand(1,2),
 
             ];
             $member[] = $item;
