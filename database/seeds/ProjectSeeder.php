@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+// @codingStandardsIgnoreLine
 class ProjectSeeder extends Seeder
 {
     /**
@@ -17,9 +18,9 @@ class ProjectSeeder extends Seeder
             $item = [
                 'name' => $faker->name(),
                 'information' => $faker->address(),
-                'type' => rand(1,3),
-                'status' => rand(1,2),
-            ];
+                'type' => random(1, 3),
+                'status' => random(1, 2),
+                ];
             $project[] = $item;
         }
 

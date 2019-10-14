@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+// @codingStandardsIgnoreLine
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,7 +12,5 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(MemberSeeder::class);
-         $this->call( ProjectSeeder::class);
     }
 }

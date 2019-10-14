@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+// @codingStandardsIgnoreLine
 class MemberSeeder extends Seeder
 {
     /**
@@ -13,7 +14,7 @@ class MemberSeeder extends Seeder
     {
         $member = [];
         $faker = Faker\Factory::create();
-        for ($i = 0; $i < 10 ; $i++) {
+        for ($i = 0; $i< 10 ; $i++) {
             $item = [
                 'name' => $faker->name(),
                 'information' => $faker->email(),
@@ -26,9 +27,8 @@ class MemberSeeder extends Seeder
                     'people',
                     false
                 ),
-                'position' => rand(1,7),
-                'gender' => rand(1,2),
-
+                'position' => rand(1, 7),
+                'gender' => rand(1, 2),
             ];
             $member[] = $item;
         }

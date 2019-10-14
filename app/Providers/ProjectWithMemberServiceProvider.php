@@ -15,7 +15,7 @@ class ProjectWithMemberServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(ProjectWithMemberInterface::class, ProjectWithMember::class); //
     }
 
     /**
