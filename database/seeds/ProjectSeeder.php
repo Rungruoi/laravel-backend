@@ -18,8 +18,9 @@ class ProjectSeeder extends Seeder
             $item = [
                 'name' => $faker->name(),
                 'information' => $faker->address(),
-                'type' => random(1, 3),
-                'status' => random(1, 2),
+                'deadline' => now(),
+                'type' => rand(1, 3),
+                'status' => rand(1, 2),
                 ];
             $project[] = $item;
         }
