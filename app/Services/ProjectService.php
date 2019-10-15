@@ -17,6 +17,6 @@ class ProjectService implements ProjectInterface
     }
     public function updateProject($id, $data)
     {
-       return Project::where('id', $id)->update($data);
+        return Project::where('id', $id)->update($data);
     }
 }
