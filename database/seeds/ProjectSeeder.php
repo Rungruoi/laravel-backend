@@ -14,7 +14,7 @@ class ProjectSeeder extends Seeder
     {
         $project = [];
         $faker = Faker\Factory::create();
-        for ($i = 0; $i < 10 ; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $item = [
                 'name' => $faker->name(),
                 'information' => $faker->address(),

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Interfaces\ProjectInterface;
 use App\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -20,7 +22,7 @@ class ProjectController extends Controller
         return response()->json($project);
     }
 
-    public function store(Request $request)
+    public function store(CreateProjectRequest $request)
     {
         $data = $request->all();
         $addProject = $this->projectService->addProject($data);
@@ -28,17 +30,10 @@ class ProjectController extends Controller
         return response()->json("success create", 200);
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateProjectRequest $request, $id)
     {
         $updateProject = $this->projectService->updateProject($id, $request->all());
 
         return response()->json("success update", 200);
-    }
-
-    public function destroy($id)
-    {
-        $deleteProject = Project::find($id)->delete();
-
-        return response()->json("delete success", 200);
     }
 }
