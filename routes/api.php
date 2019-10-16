@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,7 +27,7 @@ Route::prefix('project')->group(function () {
     Route::post('/{id}/add-member/{idmember}', 'ProjectWithMemberController@store');
     Route::delete('/{id}/remove-member/{idmember}', 'ProjectWithMemberController@destroy');
 });
-
+// crud member
 Route::prefix('member')->group(function () {
     Route::get('/', 'MemberController@index');
     Route::post('member/add', 'MemberController@store');
