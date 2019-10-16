@@ -7,6 +7,7 @@ use App\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Facades\Lang;
 
 class ProjectController extends Controller
 {
@@ -27,13 +28,13 @@ class ProjectController extends Controller
         $data = $request->all();
         $addProject = $this->projectService->addProject($data);
 
-        return response()->json("success create", 200);
+        return response()->json(Lang::get('message.add-project'), 200);
     }
 
     public function update(UpdateProjectRequest $request, $id)
     {
         $updateProject = $this->projectService->updateProject($id, $request->all());
 
-        return response()->json("success update", 200);
+        return response()->json(Lang::get('message.edit-project'), 200);
     }
 }
