@@ -34,7 +34,3 @@ Route::prefix('member')->group(function () {
     Route::delete('member/{id}/delete', 'MemberController@destroy');
     Route::put('member/{id}/edit', 'MemberController@update');
 });
-
-
-
-
