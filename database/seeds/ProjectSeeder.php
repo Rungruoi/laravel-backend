@@ -14,12 +14,13 @@ class ProjectSeeder extends Seeder
     {
         $project = [];
         $faker = Faker\Factory::create();
-        for ($i = 0; $i < 10 ; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $item = [
                 'name' => $faker->name(),
                 'information' => $faker->address(),
-                'type' => random(1, 3),
-                'status' => random(1, 2),
+                'deadline' => now(),
+                'type' => rand(1, 3),
+                'status' => rand(1, 2),
                 ];
             $project[] = $item;
         }

@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Interfaces\ProjectWithMemberInterface;
-use App\Services\ProjectWithMember;
+use App\Services\ProjectWithMemberService;
 
 class ProjectWithMemberServiceProvider extends ServiceProvider
 {
@@ -15,7 +15,7 @@ class ProjectWithMemberServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(ProjectWithMemberInterface::class, ProjectWithMember::class); //
+        $this->app->singleton(ProjectWithMemberInterface::class, ProjectWithMemberService::class); //
     }
 
     /**

@@ -2,8 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ProjectWithMemberInterface;
+use App\ProjectWithMember;
 use Illuminate\Http\Request;
 
 class ProjectWithMemberController extends Controller
 {
+    public function __construct(ProjectWithMemberInterface $projectMember)
+    {
+        $this->projectWithMember = $projectMember;
+    }
+
+    public function index($id)
+    {
+        $showDetailProject = $this->projectWithMember->getProjectWithMember($id);
+        return response()->json($showDetailProject);
+    }
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        $addMember = $this->projectWithMember->addMembertoProject($data);
+
+        return response()->json("success create member to project", 200);
+    }
+
+    public function update(Request $request, $id, $idmember)
+    {
+    }
+
+    public function destroy($id, $idmember)
+    {
+        $deleteProject = ProjectWithMember::find($id)->where('member_id', $idmember)->delete();
+
+        return response()->json("delete member in project success", 200);
+    }
 }
