@@ -16,6 +16,7 @@ class ProjectWithMemberController extends Controller
     public function index($id)
     {
         $showDetailProject = $this->projectWithMember->getProjectWithMember($id);
+        
         return response()->json($showDetailProject);
     }
     public function store(Request $request)
