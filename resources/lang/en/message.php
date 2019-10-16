@@ -1,6 +1,6 @@
 <?php
 
 return  [
-    'add-project' => 'success add project ',
-    'edit-project' => 'success edit project',
+    'add_project' => 'Create project successfully',
+    'edit_project' => 'Update project successfully',
 ];

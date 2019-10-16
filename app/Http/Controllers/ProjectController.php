@@ -28,13 +28,13 @@ class ProjectController extends Controller
         $data = $request->all();
         $addProject = $this->projectService->addProject($data);
 
-        return response()->json(Lang::get('message.add-project'), 200);
+        return response()->json(Lang::get('message.add_project'), 200);
     }
 
     public function update(UpdateProjectRequest $request, $id)
     {
         $updateProject = $this->projectService->updateProject($id, $request->all());
 
-        return response()->json(Lang::get('message.edit-project'), 200);
+        return response()->json(Lang::get('message.edit_project'), 200);
     }
 }
