@@ -11,8 +11,4 @@ class ProjectWithMemberService implements ProjectWithMemberInterface
     {
         return ProjectWithMember::where('project_id', $id)->get();
     }
-
-    public function addMembertoProject($data)
-    {
-    }
 }

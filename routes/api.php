@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,19 +17,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('admin')->group(function() {
-    Route::get('project', 'ProjectController@index');
-    Route::post('project/add', 'ProjectController@store');
-    Route::delete('project/{id}/delete', 'ProjectController@destroy');
-    Route::put('project/{id}/edit','ProjectController@update');
-
-    Route::get('member', 'MemberController@index');
+Route::prefix('project')->group(function () {
+    Route::get('/', 'ProjectController@index');
+    Route::post('/add', 'ProjectController@store');
+    Route::delete('/{id}/delete', 'ProjectController@destroy');
+    Route::put('/{id}/edit', 'ProjectController@update');
+// project with member
+    Route::get('/{id}/list-member', 'ProjectWithMemberController@index');
+    Route::post('/{id}/add-member/{idmember}', 'ProjectWithMemberController@store');
+    Route::delete('/{id}/remove-member/{idmember}', 'ProjectWithMemberController@destroy');
+});
+// crud member
+Route::prefix('member')->group(function () {
+    Route::get('/', 'MemberController@index');
     Route::post('member/add', 'MemberController@store');
     Route::delete('member/{id}/delete', 'MemberController@destroy');
     Route::put('member/{id}/edit', 'MemberController@update');
-
-    Route::get('project/{id}/list-member', 'ProjectWithMemberController@index');
-    Route::post('project/{id}/add-member/{idmember}', 'ProjectWithMemberController@store');
-    Route::delete('project/{id}/remove-member/{idmember}', 'ProjectWithMemberController@destroy');
-
 });
