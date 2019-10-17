@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Interfaces\MemberInterface;
 use App\Member;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateMemberRequest;
+use Illuminate\Support\Facades\Lang;
 
 class MemberController extends BaseController
 {
@@ -19,12 +21,12 @@ class MemberController extends BaseController
         return response()->json($member);
     }
 
-    public function store(Request $request)
+    public function store(CreateMemberRequest $request)
     {
         $data = $request->all();
         $addMember = $this->memberService->addMember($data);
 
-        return response()->json("success create", 200);
+        return response()->json(Lang::get('message.add_member'), 200);
     }
 
     public function destroy($id)

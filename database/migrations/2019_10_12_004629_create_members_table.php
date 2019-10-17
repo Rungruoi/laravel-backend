@@ -18,9 +18,9 @@ class CreateMembersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('information');
-            $table->integer('phone_number');
+            $table->string('phone_number');
             $table->date('date_of_birth');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->integer('position');
             $table->integer('gender');
             $table->rememberToken();
