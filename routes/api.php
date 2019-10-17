@@ -30,7 +30,7 @@ Route::prefix('project')->group(function () {
 // crud member
 Route::prefix('member')->group(function () {
     Route::get('/', 'MemberController@index');
-    Route::post('member/add', 'MemberController@store');
+    Route::post('/add', 'MemberController@store');
     Route::delete('member/{id}/delete', 'MemberController@destroy');
     Route::put('member/{id}/edit', 'MemberController@update');
 });
