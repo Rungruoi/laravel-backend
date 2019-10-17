@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use DateTime;
+use Carbon\Carbon;
 
 class CreateMemberRequest extends FormRequest
 {
@@ -24,7 +24,7 @@ class CreateMemberRequest extends FormRequest
      */
     public function rules()
     {
-        $reqDate = new DateTime('now');
+        $reqDate = Carbon::now();
         $reqDate = $reqDate->modify('-60 years')->format('Y-m-d');
         return [
             'name' => 'required|max:50',
