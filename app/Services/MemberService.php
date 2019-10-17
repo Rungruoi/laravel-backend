@@ -5,32 +5,29 @@ namespace App\Services;
 use App\Member;
 use App\Interfaces\MemberInterface;
 use Illuminate\Http\Request;
+use App\Services\UploadImageService;
 
 class MemberService implements MemberInterface
 {
+    public function __construct(UploadImageService $uploadService)
+    {
+        $this->uploadService = $uploadService;
+    }
     public function getMember()
     {
         return Member::all();
     }
 
-    public function addMember($request)
+    public function addMember($data)
     {
         $member = new Member();
-        $member->fill($request->all());
-        if ($request->hasFile('avatar')) {
-            $member->avatar = $this->uploadFile($request);
+        $member->fill($data);
+        if ($member->avatar != null) {
+            $image = $member->avatar;
+            $member->avatar = $this->uploadService->uploadFile($image);
         }
         $member ->save();
 
         return $member;
-    }
-
-    public function uploadFile($request)
-    {
-            $image = $request->avatar;
-            $extension = $image->getClientOriginalExtension();
-            $file_name = time() . '-' . rand(1, 100) . '.' . $extension;
-
-            return asset($image->move('images/', $file_name));
     }
 }

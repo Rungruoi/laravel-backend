@@ -23,7 +23,8 @@ class MemberController extends BaseController
 
     public function store(CreateMemberRequest $request)
     {
-        $addMember = $this->memberService->addMember($request);
+        $data = $request->all();
+        $addMember = $this->memberService->addMember($data);
 
         return response()->json(Lang::get('message.add_member'), 200);
     }
