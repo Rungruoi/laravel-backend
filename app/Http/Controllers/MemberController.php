@@ -29,10 +29,18 @@ class MemberController extends BaseController
         return response()->json(Lang::get('message.add_member'), 200);
     }
 
+    public function update(CreateMemberRequest $request, $id)
+    {
+        $data = $request->all();
+        $updateMember = $this->memberService->updateMember($id, $data);
+
+        return response()->json(Lang::get('message.edit_member'), 200);
+    }
+
     public function destroy($id)
     {
         $deleteProject = Member::find($id)->delete();
 
-        return response()->json("delete success", 200);
+        return response()->json(Lang::get('message.remove_member'), 200);
     }
 }

@@ -26,7 +26,7 @@ class CreateProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|max:10',
-            'information' => 'required|max:300',
+            'information' => 'max:300',
             'deadline' => 'after:yesterday',
             'type' => 'required|regex:/[1-3]/',
             'status' => 'required|regex:/[1-5]/',
