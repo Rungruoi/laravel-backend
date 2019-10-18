@@ -13,4 +13,9 @@ class ProjectWithMember extends Model
         'member_id',
         'role'
     ];
+
+    public function member()
+    {
+        return $this->belongsTo('App\Member', 'member_id', 'id');
+    }
 }

@@ -9,8 +9,6 @@ class ProjectWithMemberService implements ProjectWithMemberInterface
 {
     public function getProjectWithMember($id)
     {
-        return ProjectWithMember::where('project_id', $id)
-            ->join('members', 'project_with_member.member_id', '=', 'members.id')
-            ->get();
+        return ProjectWithMember::where('project_id', $id)->get()->load('member');
     }
 }
