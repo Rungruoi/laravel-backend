@@ -41,7 +41,7 @@ class MemberService implements MemberInterface
     {
         $dataServe = Member::find($id);
         $dataServe->fill($data);
-        if ($dataServe->avatar > self::SizeImage) {
+        if (!empty($data['avatar'])) {
             $image = $data['avatar'];
             $dataServe->avatar = $this->uploadService->uploadFile($image);
         }
