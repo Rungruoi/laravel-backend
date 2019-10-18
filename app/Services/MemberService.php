@@ -9,6 +9,7 @@ use App\Services\UploadImageService;
 
 class MemberService implements MemberInterface
 {
+    const SizeImage = 0;
     public function __construct(UploadImageService $uploadService)
     {
         $this->uploadService = $uploadService;
@@ -29,5 +30,22 @@ class MemberService implements MemberInterface
         $member ->save();
 
         return $member;
+    }
+
+    public function show($id)
+    {
+        return Member::find($id);
+    }
+
+    public function updateMember($id, $data)
+    {
+        $dataServe = Member::find($id);
+        $dataServe->fill($data);
+        if (!empty($data['avatar'])) {
+            $image = $data['avatar'];
+            $dataServe->avatar = $this->uploadService->uploadFile($image);
+        }
+
+        return $dataServe->update();
     }
 }
