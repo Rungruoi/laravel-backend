@@ -9,7 +9,7 @@ use App\Services\UploadImageService;
 
 class MemberService implements MemberInterface
 {
-    const SizeImage = 0;
+
     public function __construct(UploadImageService $uploadService)
     {
         $this->uploadService = $uploadService;

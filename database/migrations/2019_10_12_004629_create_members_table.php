@@ -21,8 +21,8 @@ class CreateMembersTable extends Migration
             $table->string('phone_number');
             $table->date('date_of_birth');
             $table->string('avatar')->nullable();
-            $table->integer('position');
-            $table->integer('gender');
+            $table->string('position');
+            $table->string('gender');
             $table->rememberToken();
             $table->timestamps();
         });
