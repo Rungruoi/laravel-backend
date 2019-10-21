@@ -24,8 +24,7 @@ class ProjectWithMemberService implements ProjectWithMemberInterface
         if($fill > self::FILL_MEMBER_IN_PROJECT)
         {
             return response()->json(Lang::get('message.warning'), 404);
-        }else{
-            return ProjectWithMember::create($data);
         }
+            return ProjectWithMember::create($data);
     }
 }
