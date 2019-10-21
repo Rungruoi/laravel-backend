@@ -32,8 +32,8 @@ class CreateMemberRequest extends FormRequest
             'phone_number' => 'required|max:20|regex:/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)(.)]*$/',
             'date_of_birth' => 'required|date|before:today|after_or_equal:'.$reqDate,
             'avatar' => 'file|mimes:jpeg,png,jpg,git|max:10240',
-            'position' => 'required|regex:/[1-7]/',
-            'gender' => 'required|regex:/[1-2]/',
+            'position' => 'required',
+            'gender' => 'required',
         ];
     }
 }

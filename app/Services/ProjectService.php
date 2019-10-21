@@ -11,10 +11,17 @@ class ProjectService implements ProjectInterface
     {
         return Project::all();
     }
+
+    public function detailProject($id)
+    {
+        return Project::find($id);
+    }
+
     public function addProject($data)
     {
         return Project::create($data);
     }
+
     public function updateProject($id, $data)
     {
         return Project::where('id', $id)->update($data);
