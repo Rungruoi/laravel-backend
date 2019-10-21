@@ -19,8 +19,8 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('information');
             $table->date('deadline')->nullable();
-            $table->integer('type');
-            $table->integer('status');
+            $table->string('type');
+            $table->string('status');
             $table->timestamps();
         });
     }

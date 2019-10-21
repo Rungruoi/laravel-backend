@@ -31,7 +31,7 @@ Route::prefix('project')->group(function () {
 Route::prefix('member')->group(function () {
     Route::get('/', 'MemberController@index');
     Route::post('/add', 'MemberController@store');
-    Route::delete('member/{id}/delete', 'MemberController@destroy');
+    Route::delete('/{id}/delete', 'MemberController@destroy');
     Route::get('/show', 'MemberController@show');
     Route::put('/{id}/edit', 'MemberController@update');
 });
