@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddMemberToProjectRequest;
 use App\Interfaces\ProjectWithMemberInterface;
 use App\ProjectWithMember;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class ProjectWithMemberController extends Controller
 
         return response()->json($showDetailProject);
     }
-    public function store(Request $request)
+    public function store(AddMemberToProjectRequest $request)
     {
         $data = $request->all();
         $addMember = $this->projectWithMember->addMembertoProject($data);
