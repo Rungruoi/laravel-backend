@@ -26,6 +26,8 @@ Route::prefix('project')->group(function () {
 // project with member
     Route::get('/{id}/list-member', 'ProjectWithMemberController@index');
     Route::post('/{id}/add-member/{idmember}', 'ProjectWithMemberController@store');
+    Route::get('/{id}/edit-member/{idmember}', 'ProjectWithMemberController@show');
+    Route::put('/{id}/update/{idmember}', 'ProjectWithMemberController@update');
     Route::delete('/{id}/remove-member/{idmember}', 'ProjectWithMemberController@destroy');
 });
 // crud member
