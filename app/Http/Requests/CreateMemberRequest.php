@@ -32,7 +32,7 @@ class CreateMemberRequest extends FormRequest
             'information' => 'max:300',
             'phone_number' => 'required|max:20|regex:/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)(.)]*$/',
             'date_of_birth' => 'required|date|before:today|after_or_equal:'.$reqDate,
-            'avatar' => 'file|mimes:jpeg, png, jpg, git|max:10240',
+            'avatar' => 'file|mimes:jpeg, png, jpg, gif|max:10240',
             'position' => ['required', Rule::in(['intern', 'junior', 'senior', 'project manager', 'ceo', 'cto', 'bo'])],
             'gender' => ['required', Rule::in(['gender', 'male'])],
         ];

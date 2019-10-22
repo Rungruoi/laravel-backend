@@ -35,8 +35,11 @@ class ProjectWithMemberController extends Controller
 
     public function destroy($id, $idmember)
     {
-        $deleteProject = ProjectWithMember::find($id)->where('member_id', $idmember)->delete();
+        $deleteProject = ProjectWithMember::where([
+            ['member_id', $idmember],
+            ['project_id', $id]
+        ])->delete();
 
-        return response()->json("delete member in project success", 200);
+        return response()->json(Lang::get('message.remove_member'), 200);
     }
 }

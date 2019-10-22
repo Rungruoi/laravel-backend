@@ -13,6 +13,7 @@ class MemberService implements MemberInterface
     {
         $this->uploadService = $uploadService;
     }
+
     public function getMember()
     {
         return Member::all();
