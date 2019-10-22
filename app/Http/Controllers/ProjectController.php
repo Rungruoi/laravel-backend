@@ -31,7 +31,7 @@ class ProjectController extends Controller
         return response()->json(Lang::get('message.add_project'), 200);
     }
 
-    public  function show($id)
+    public function show($id)
     {
         $getProject = $this->projectService->detailProject($id);
 
