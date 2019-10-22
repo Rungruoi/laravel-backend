@@ -28,8 +28,8 @@ class CreateProjectRequest extends FormRequest
             'name' => 'required|max:10',
             'information' => 'max:300',
             'deadline' => 'after:yesterday',
-            'type' => 'required|regex:/[1-3]/',
-            'status' => 'required|regex:/[1-5]/',
+            'type' => 'required',
+            'status' => 'required',
         ];
     }
 }
