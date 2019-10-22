@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateProjectRequest extends FormRequest
+class ProjectWithMemberRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,9 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:10',
-            'information' => 'required|max:300',
-            'deadline' => 'after:yesterday',
-            'type' => ['required', Rule::in(['lab', 'single', 'acceptance'])],
-            'status' =>['required', Rule::in(['planned', 'junior', 'doing', 'done', 'cancelled'])]
+            'project_id' => 'required',
+            'member_id' => 'required',
+            'role' => ['required', Rule::in(['dev', 'pl', 'pm', 'po', 'sm'])]
         ];
     }
 }

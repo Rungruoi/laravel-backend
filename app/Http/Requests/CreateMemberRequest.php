@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 
 class CreateMemberRequest extends FormRequest
 {
@@ -31,9 +32,9 @@ class CreateMemberRequest extends FormRequest
             'information' => 'max:300',
             'phone_number' => 'required|max:20|regex:/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)(.)]*$/',
             'date_of_birth' => 'required|date|before:today|after_or_equal:'.$reqDate,
-            'avatar' => 'file|mimes:jpeg,png,jpg,git|max:10240',
-            'position' => 'required|regex:/[1-7]/',
-            'gender' => 'required|regex:/[1-2]/',
+            'avatar' => 'file|mimes:jpeg, png, jpg, git|max:10240',
+            'position' => ['required', Rule::in(['intern', 'junior', 'senior', 'project manager', 'ceo', 'cto', 'bo'])],
+            'gender' => ['required', Rule::in(['gender', 'male'])],
         ];
     }
 }

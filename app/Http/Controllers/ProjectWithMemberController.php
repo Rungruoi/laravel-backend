@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectWithMemberRequest;
 use App\Interfaces\ProjectWithMemberInterface;
 use App\ProjectWithMember;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 
 class ProjectWithMemberController extends Controller
 {
@@ -19,12 +21,12 @@ class ProjectWithMemberController extends Controller
 
         return response()->json($showDetailProject);
     }
-    public function store(Request $request)
+    public function store(ProjectWithMemberRequest $request)
     {
         $data = $request->all();
         $addMember = $this->projectWithMember->addMembertoProject($data);
 
-        return response()->json("success create member to project", 200);
+        return response()->json(Lang::get('message.add_member_to_project'), 200);
     }
 
     public function update(Request $request, $id, $idmember)
