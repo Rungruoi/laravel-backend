@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\MemberInterface;
 use App\Member;
+use App\ProjectWithMember;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateMemberRequest;
 use Illuminate\Support\Facades\Lang;
@@ -40,6 +41,7 @@ class MemberController extends BaseController
     public function destroy($id)
     {
         $deleteProject = Member::find($id)->delete();
+        $deleteProjectWithMember = ProjectWithMember::where('member_id', $id)->delete();
 
         return response()->json(Lang::get('message.remove_member'), 200);
     }
