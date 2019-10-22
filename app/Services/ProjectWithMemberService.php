@@ -21,8 +21,7 @@ class ProjectWithMemberService implements ProjectWithMemberInterface
             ['member_id', $data['member_id']]
         ])->count();
         //không được tồn tại một thành viên có 2 quyền trong project
-        if($fill > self::FILL_MEMBER_IN_PROJECT)
-        {
+        if ($fill > self::FILL_MEMBER_IN_PROJECT) {
             return response()->json(Lang::get('message.warning'), 404);
         }
             return ProjectWithMember::create($data);
