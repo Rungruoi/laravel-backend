@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProjectWithMemberRequest extends FormRequest
 {
@@ -26,7 +27,7 @@ class ProjectWithMemberRequest extends FormRequest
         return [
             'project_id' => 'required',
             'member_id' => 'required',
-            'role' => 'required',
+            'role' => ['required', Rule::in(['dev', 'pl', 'pm', 'po', 'sm'])]
         ];
     }
 }

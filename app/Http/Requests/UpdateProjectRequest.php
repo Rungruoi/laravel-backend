@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use DateTime;
+use Illuminate\Validation\Rule;
 
 class UpdateProjectRequest extends FormRequest
 {
@@ -28,8 +28,8 @@ class UpdateProjectRequest extends FormRequest
             'name' => 'required|max:10',
             'information' => 'required|max:300',
             'deadline' => 'after:yesterday',
-            'type' => 'required',
-            'status' => 'required',
+            'type' => ['required', Rule::in(['lab', 'single', 'acceptance'])],
+            'status' =>['required', Rule::in(['planned', 'junior', 'doing', 'done', 'cancelled'])]
         ];
     }
 }
