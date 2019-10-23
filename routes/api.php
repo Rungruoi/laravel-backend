@@ -21,10 +21,13 @@ Route::prefix('project')->group(function () {
     Route::get('/', 'ProjectController@index');
     Route::post('/add', 'ProjectController@store');
     Route::delete('/{id}/delete', 'ProjectController@destroy');
+    Route::get('/{id}', 'ProjectController@show');
     Route::put('/{id}/edit', 'ProjectController@update');
 // project with member
     Route::get('/{id}/list-member', 'ProjectWithMemberController@index');
     Route::post('/{id}/add-member/{idmember}', 'ProjectWithMemberController@store');
+    Route::get('/{id}/edit-member/{idmember}', 'ProjectWithMemberController@show');
+    Route::put('/{id}/update/{idmember}', 'ProjectWithMemberController@update');
     Route::delete('/{id}/remove-member/{idmember}', 'ProjectWithMemberController@destroy');
 });
 // crud member
@@ -32,6 +35,6 @@ Route::prefix('member')->group(function () {
     Route::get('/', 'MemberController@index');
     Route::post('/add', 'MemberController@store');
     Route::delete('/{id}/delete', 'MemberController@destroy');
-    Route::get('/show', 'MemberController@show');
+    Route::get('/{id}', 'MemberController@show');
     Route::put('/{id}/edit', 'MemberController@update');
 });

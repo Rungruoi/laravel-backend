@@ -29,14 +29,28 @@ class ProjectWithMemberController extends Controller
         return response()->json(Lang::get('message.add_member_to_project'), 200);
     }
 
+    public function show($id, $idmember)
+    {
+        $detail = $this->projectWithMember->detailProjectWithMember($id, $idmember);
+
+        return response()->json($detail);
+    }
+
     public function update(Request $request, $id, $idmember)
     {
+        $data = $request->all();
+        $updateData = $this->projectWithMember->updateProjectWithMember($id, $idmember, $data);
+
+        return response()->json(Lang::get('message.edit_member'), 200);
     }
 
     public function destroy($id, $idmember)
     {
-        $deleteProject = ProjectWithMember::find($id)->where('member_id', $idmember)->delete();
+        $deleteProject = ProjectWithMember::where([
+            ['member_id', $idmember],
+            ['project_id', $id]
+        ])->delete();
 
-        return response()->json("delete member in project success", 200);
+        return response()->json(Lang::get('message.remove_member'), 200);
     }
 }

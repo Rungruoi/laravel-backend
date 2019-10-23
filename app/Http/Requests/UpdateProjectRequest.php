@@ -26,7 +26,7 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|max:10',
-            'information' => 'required|max:300',
+            'information' => 'max:300',
             'deadline' => 'after:yesterday',
             'type' => ['required', Rule::in(['lab', 'single', 'acceptance'])],
             'status' =>['required', Rule::in(['planned', 'junior', 'doing', 'done', 'cancelled'])]

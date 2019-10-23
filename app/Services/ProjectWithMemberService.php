@@ -26,4 +26,20 @@ class ProjectWithMemberService implements ProjectWithMemberInterface
         }
             return ProjectWithMember::create($data);
     }
+
+    public function detailProjectWithMember($id, $idmember)
+    {
+        return ProjectWithMember::where([
+            ['project_id', $id],
+            ['member_id', $idmember],
+        ])->get()->load('member');
+    }
+
+    public function updateProjectWithMember($id, $idmember, $data)
+    {
+        return ProjectWithMember::where([
+            ['project_id', $id],
+            ['member_id', $idmember],
+        ])->update($data);
+    }
 }
